@@ -35,7 +35,7 @@ body{
 
 .form{
     padding: 30px 40px;
-    width: 500px;
+    width: 300px;
 }
 
 .form-control{
@@ -129,3 +129,9 @@ body{
 .show-success-message{
     display: block;
 } */
+
+@media (min-width: 500px){
+    .form{
+        width: 500px;
+    }
+}
