@@ -22,7 +22,9 @@ function checkInputs() {
     //show error
     //add error class
     setErrorFor(username, " Oops! Username cannot be blank");
-  } else {
+  }else if (usernameValue.length < 8 || usernameValue.length > 16) {
+    setErrorFor(username, "Username should be minimum of 8 and maximum of 16 characters");
+  }else {
     // add success class
     setSuccessFor(username);
   }
@@ -37,7 +39,10 @@ function checkInputs() {
 
   if (passwordValue === "") {
     setErrorFor(password, "Oops! password cannot be blank");
-  } else {
+  } else if (!isPassword(passwordValue)) {
+    setErrorFor(password, "Password must contain at least one uppercase, lowercase, number and special character");
+  }
+  else {
     setSuccessFor(password);
   }
 
@@ -72,7 +77,12 @@ function isEmail(email) {
   );
 }
 
-function successMessage(form){
-  const showSuccessMessage = form.parentElement
-  showSuccessMessage.className = 'success-message'
+function isPassword(password) {
+  return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(password);
 }
+
+
+// function successMessage(form){
+//   const showSuccessMessage = form.parentElement
+//   showSuccessMessage.className = 'success-message'
+// }
