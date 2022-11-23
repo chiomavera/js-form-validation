@@ -99,6 +99,7 @@ body{
 
 .form-control.error small {
 	visibility: visible;
+    position: relative;
 }
 
 .form button {
